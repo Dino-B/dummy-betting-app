@@ -8,6 +8,6 @@ spec:
     app: data-access
   ports:
     - protocol: TCP
-      nodePort: 30334
+      nodePort: {{ .Values.dataAccess.port }}
       port: 8080
       targetPort: 8080

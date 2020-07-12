@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const dataAccessEndpoint = "http://10.0.2.15:30334";
+const dataAccessEndpoint = 'http://' + process.env.VUE_APP_DATA_ACCESS_IP + ':' + process.env.VUE_APP_DATA_ACCESS_PORT;
 const userName = "DummyUser";
 
 const state = {

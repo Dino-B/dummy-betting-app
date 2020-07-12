@@ -6,6 +6,13 @@ replicaCount:
   frontEnd: 1
   dataAccess: 1
 
+frontEnd:
+  port: 30033
+
+dataAccess:
+  ip: 10.0.2.15
+  port: 30034
+
 mongodb:
   fullnameOverride: data-mongodb
   auth:

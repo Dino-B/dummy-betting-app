@@ -20,3 +20,14 @@ spec:
           command: ["npm", "run", "serve"]
           ports:
            - containerPort: 8080
+          env:
+            - name: VUE_APP_DATA_ACCESS_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: front-end
+                  key: DATA_ACCESS_IP
+            - name: VUE_APP_DATA_ACCESS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: front-end
+                  key: DATA_ACCESS_PORT

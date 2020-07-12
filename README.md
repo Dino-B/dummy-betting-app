@@ -21,10 +21,10 @@ Execute the command below from the root of the repository to build all images:
   # ./build.sh -b all
 ```
 
-Execute the command below to deploy the chart:
+Execute the command below to deploy the chart (set data access IP to some externally visible IP of your k8s cluster):
 
 ```
-  # helm install --name=dummy-betting-app  helm/test-app/
+  # helm install --name=dummy-betting-app  helm/test-app/ --set dataAccess.ip=[kubernetes worker IP]
 ```
 
 List pods until you see an output similar to the one below:
@@ -42,6 +42,6 @@ List pods until you see an output similar to the one below:
 
 Run your browser and go to **http://[kubernetes worker IP]:30033** to use the application!
 
-## GitBub Repository
+## GitHub Repository
 
 https://github.com/Dino-B/dummy-betting-app

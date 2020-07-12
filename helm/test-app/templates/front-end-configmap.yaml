@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: front-end
+data:
+  DATA_ACCESS_IP: {{ .Values.dataAccess.ip | quote}}
+  DATA_ACCESS_PORT: {{ .Values.dataAccess.port | quote }}
