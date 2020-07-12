@@ -4,6 +4,7 @@
     <caption class="caption"> Tickets: </caption>
        <thead>
         <tr>
+          <th> ID </th>
           <th> Stake </th>
           <th> Potential Winnings </th>
           <th> Status </th>
@@ -11,6 +12,7 @@
         </tr>
       </thead>
       <tr class="sportevent" v-bind:key="ticket.id" v-for="ticket in allTickets">
+        <td> {{ticket.id}} </td>
         <td> {{ticket.stake}} </td>
         <td> {{ticket.potentialWinnings}} </td>
         <td> {{ticket.ticketStatus}} </td>
