@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-access
+  labels:
+    app: data-access
+spec:
+  replicas: {{ .Values.replicaCount.dataAccess }}
+  selector:
+    matchLabels:
+      app: data-access
+  template:
+    metadata:
+      labels:
+        app: data-access
+    spec:
+      initContainers:
+        - name: init-db
+          image: busybox:1.28
+          command: ['sh', '-c', "until nslookup data-mongodb-1.data-mongodb-headless.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for db; sleep 2; done"]
+      containers:
+        - name: data-access
+          image: data-access:1.0.0
+          command: ['java', '-cp', '/usr/src/app/*:/usr/src/app/dependency/*',
+                    '-Dspring.application.name=data-access',
+                    '-Dspring.cloud.kubernetes.reload.enabled=true',
+                    '-Dspring.cloud.kubernetes.reload.strategy=refresh',
+                    'com.test.mongodb.DataAccessClientMain']
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+      serviceAccountName: data-access

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end
+  labels:
+    app: front-end
+spec:
+  replicas: {{ .Values.replicaCount.frontEnd }}
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+        - name: front-end
+          image: front-end:1.0.0
+          command: ["npm", "run", "serve"]
+          ports:
+           - containerPort: 8080

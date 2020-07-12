@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: data-access
+data:
+  application.yaml: |-
+    app:
+      configuredBonuses:
+      - bonusType: "uniqueSports"
+        required: 3
+        value: 10
+      - bonusType: "sameSportEvents"
+        required: 3
+        value: 5

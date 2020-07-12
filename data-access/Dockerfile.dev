@@ -1,0 +1,8 @@
+FROM openjdk:11
+
+RUN mkdir -p /usr/src/app/dependency
+
+COPY target/dependency/*.jar /usr/src/app/dependency/
+COPY target/*.jar /usr/src/app/
+
+CMD "java"
