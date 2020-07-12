@@ -41,3 +41,7 @@ List pods until you see an output similar to the one below:
 ```
 
 Run your browser and go to **http://[kubernetes worker IP]:30033** to use the application!
+
+## GitBub Repository
+
+https://github.com/Dino-B/dummy-betting-app
