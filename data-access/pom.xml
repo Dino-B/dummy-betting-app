@@ -10,7 +10,7 @@
     <name>data-access</name>
 
     <properties>
-        <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
